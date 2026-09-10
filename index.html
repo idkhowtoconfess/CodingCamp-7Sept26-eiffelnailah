@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Focus Dashboard</h1>
+        
+        <div class="grid">
+            <!-- Greeting Section -->
+            <div class="card">
+                <h2>Greeting</h2>
+                <div class="time-display" id="timeDisplay">--:--:--</div>
+                <div class="date-display" id="dateDisplay">Loading...</div>
+                <div class="greeting" id="greeting">Hello!</div>
+            </div>
+
+            <!-- Focus Timer Section -->
+            <div class="card">
+                <h2>Focus Timer</h2>
+                <div class="timer-container">
+                    <div class="timer-display" id="timerDisplay">25:00</div>
+                    <div class="timer-buttons">
+                        <button class="btn btn-primary" id="startTimer">Start</button>
+                        <button class="btn btn-secondary" id="stopTimer">Stop</button>
+                        <button class="btn btn-danger" id="resetTimer">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- To-Do List Section -->
+            <div class="card">
+                <h2>To-Do List</h2>
+                <div class="todo-input">
+                    <input type="text" id="todoInput" placeholder="Add a new task...">
+                    <button class="btn btn-primary" id="addTodo">Add</button>
+                </div>
+                <ul class="todo-list" id="todoList"></ul>
+                <button class="btn btn-primary todo-edit-btn" id="editTodoBtn" style="display: none;">Save Edit</button>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="card">
+                <h2>Quick Links</h2>
+                <div class="quick-links-input">
+                    <input type="text" id="linkNameInput" placeholder="Link name...">
+                    <input type="text" id="linkUrlInput" placeholder="URL...">
+                    <button class="btn btn-primary" id="addLink">Add</button>
+                </div>
+                <ul class="quick-links-list" id="quickLinksList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
