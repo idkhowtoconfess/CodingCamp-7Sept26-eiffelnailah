@@ -4,56 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Focus Dashboard</h1>
-        
-        <div class="grid">
+        <div class="header">
+            <h1>Life Dashboard</h1>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="theme-icon">🌛</span>
+            </button>
+        </div>
+
+        <!-- Row 1: Greeting + Timer side by side -->
+        <div class="row-top">
+
             <!-- Greeting Section -->
-            <div class="card">
-                <h2>Greeting</h2>
+            <div class="card card-greeting">
                 <div class="time-display" id="timeDisplay">--:--:--</div>
                 <div class="date-display" id="dateDisplay">Loading...</div>
                 <div class="greeting" id="greeting">Hello!</div>
             </div>
 
             <!-- Focus Timer Section -->
-            <div class="card">
-                <h2>Focus Timer</h2>
+            <div class="card card-timer">
+                <div class="card-label1">Focus Timer</div>
+                <div class="timer-settings">
+                    <select id="timerDuration" class="timer-select">
+                        <option value="15">15 min</option>
+                        <option value="25" selected>25 min</option>
+                        <option value="30">30 min</option>
+                        <option value="45">45 min</option>
+                        <option value="60">60 min</option>
+                    </select>
+                </div>
                 <div class="timer-container">
                     <div class="timer-display" id="timerDisplay">25:00</div>
                     <div class="timer-buttons">
-                        <button class="btn btn-primary" id="startTimer">Start</button>
-                        <button class="btn btn-secondary" id="stopTimer">Stop</button>
-                        <button class="btn btn-danger" id="resetTimer">Reset</button>
+                        <button class="btn btn-start" id="startTimer">▶ Start</button>
+                        <button class="btn btn-stop" id="stopTimer">⏸ Stop</button>
+                        <button class="btn btn-reset" id="resetTimer">↺ Reset</button>
                     </div>
                 </div>
             </div>
 
-            <!-- To-Do List Section -->
-            <div class="card">
-                <h2>To-Do List</h2>
-                <div class="todo-input">
-                    <input type="text" id="todoInput" placeholder="Add a new task...">
-                    <button class="btn btn-primary" id="addTodo">Add</button>
-                </div>
-                <ul class="todo-list" id="todoList"></ul>
-                <button class="btn btn-primary todo-edit-btn" id="editTodoBtn" style="display: none;">Save Edit</button>
-            </div>
+        </div>
 
-            <!-- Quick Links Section -->
-            <div class="card">
-                <h2>Quick Links</h2>
+        <!-- Row 2: To-Do List full width -->
+        <div class="row-todo">
+            <div class="card card-todo">
+                <div class="card-label">To-Do List</div>
+                <div class="todo-controls">
+                    <div class="todo-input">
+                        <input type="text" id="todoInput" placeholder="What needs to be done?">
+                        <button class="btn btn-add" id="addTodo">+ Add Task</button>
+                    </div>
+                    <div class="todo-sort">
+                        <select id="todoSort" class="sort-select">
+                            <option value="date-desc">Newest First</option>
+                            <option value="date-asc">Oldest First</option>
+                            <option value="alpha-asc">A to Z</option>
+                            <option value="alpha-desc">Z to A</option>
+                            <option value="status-pending">Pending First</option>
+                            <option value="status-completed">Completed First</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="todo-error" id="todoError"></p>
+                <ul class="todo-list" id="todoList"></ul>
+                <button class="btn btn-save-edit" id="editTodoBtn" style="display: none;">✓ Save Edit</button>
+            </div>
+        </div>
+
+        <!-- Row 3: Quick Links full width at bottom -->
+        <div class="row-links">
+            <div class="card card-links">
+                <div class="card-label">Quick Links</div>
                 <div class="quick-links-input">
                     <input type="text" id="linkNameInput" placeholder="Link name...">
-                    <input type="text" id="linkUrlInput" placeholder="URL...">
-                    <button class="btn btn-primary" id="addLink">Add</button>
+                    <input type="text" id="linkUrlInput" placeholder="https://...">
+                    <button class="btn btn-add1" id="addLink">+ Add Link</button>
                 </div>
                 <ul class="quick-links-list" id="quickLinksList"></ul>
             </div>
         </div>
+
     </div>
 
     <script src="js/app.js"></script>
